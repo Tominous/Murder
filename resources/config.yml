@@ -95,8 +95,8 @@ messages:
   role:
     default:
       name: "&9Bystander"
-      title: "&9You are a ${default.name}"
-      subtitle: ""
+      title: "&eYou are a &9&l${default.name}"
+      subtitle: "&6&lGOAL &r&eSurvive!"
       objective: "&e&lSurvive &e&land try to find out who the &c&lMurderer &e&lis!"
       bossbar:
         text: "%s                ${default.name}"
@@ -104,8 +104,8 @@ messages:
         style: "SOLID"
     murderer:
       name: "&cMurderer"
-      title: "&cYou are the ${murderer.name}"
-      subtitle: ""
+      title: "&eYou are the &c&l${murderer.name}"
+      subtitle: "&6&lGOAL &r&eKill all the players!"
       objective: "&e&lKill all &9&lBystanders&e&l, but don't act suspicious!"
       bossbar:
         text: "%s                ${murderer.name}"
@@ -113,7 +113,7 @@ messages:
         style: "SEGMENTED_10"
     weapon:
       name: "&9Bystander"
-      title: "&9You are a ${default.name}"
+      title: "&eYou are a &9&l${default.name}"
       subtitle: "&9with a secret weapon"
       objective: "&e&lFind the &c&lMurderer &e&land kill them with your &9&lsecret Weapon&e!"
       bossbar:
@@ -150,7 +150,7 @@ messages:
         unknown: "&eThe &cMurderer &edied under mysterious circumstances."
       innocent:
         player: "%s, %s &fkilled an &9innocent Bystander"
-      death: "&7You died. You are now a spectator."
+      death: "&c&lYOU DIED. &r&7You are now a spectator."
     winner:
       bystander: "&9Bystanders win! &fThe &cMurderer&f was %s, %s"
       murderer: "&cThe Murderer wins! &fIt was %s, %s"
@@ -228,7 +228,7 @@ messages:
       join: "&aJoin sign created"
 
 sign:
-  title: "&9[&cMurder&9]"
+  title: "&e&lMURDER"
   lines:
     title: 0
     arena: 1
@@ -284,4 +284,4 @@ name:
   - "&d"
   - "&e"
 
-debug: false
+debug: true
