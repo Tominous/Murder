@@ -77,8 +77,8 @@ public class Game {
 		if (!players.contains(player.getUniqueId())) { throw new IllegalStateException("player " + player + " is not in the game"); }
 		if (leavingPlayers.contains(player.getUniqueId())) { return; }
 
-		//		PlayerData data = Murder.instance.playerManager.getData(player.getUniqueId());
-		//		if (data != null) { data.restoreData(); }
+				PlayerData data = Murder.instance.playerManager.getData(player.getUniqueId());
+				if (data != null) { data.restoreData(); }
 
 		joiningPlayers.remove(player.getUniqueId());
 		leavingPlayers.add(player.getUniqueId());
