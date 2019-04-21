@@ -64,7 +64,7 @@ public class GameListener implements Listener {
 					} else {
 						if (player.getHealth() - event.getFinalDamage() <= 0.0) {
 							event.setCancelled(true);
-							//							data.damageAmount = 0;
+														data.damageAmount = 0;
 							data.killed = true;
 							data.getGame().killedPlayers.add(data.uuid);
 						}
@@ -89,7 +89,7 @@ public class GameListener implements Listener {
 							PlayerData damagerData = null;
 
 							if (damager.getType() == EntityType.PLAYER) {
-								//								event.setCancelled(true);
+																event.setCancelled(true);
 
 								damagerData = Murder.instance.playerManager.getData(damager.getUniqueId());
 								if (damagerData.role != Role.MURDERER) {
@@ -98,7 +98,7 @@ public class GameListener implements Listener {
 							}
 							if (damager.getType() == EntityType.ARROW) {
 								if (damager.hasMetadata("MURDER")) {
-									//									event.setCancelled(true);
+																		event.setCancelled(true);
 									List<MetadataValue> metaList = damager.getMetadata("MURDER");
 									if (metaList != null && !metaList.isEmpty()) {
 										MurderProjectile projectile = (MurderProjectile) metaList.get(0).value();
@@ -128,26 +128,26 @@ public class GameListener implements Listener {
 									} else {
 										event.setCancelled(true);
 									}
-									//									if (damagerData.getPlayer().getItemInHand().equals(Murder.instance.itemManager.getKnife())) {
-									//										//Set the potential killer
-									//										data.killer = damagerData.uuid;
-									//										if (data.damageAmount++ >= 2) {
-									//											data.damageAmount = 0;
-									//											data.killed = true;
-									//											data.getGame().killedPlayers.add(data.uuid);
-									//										}
-									//
-									//										for (UUID uuid : data.getGame().players) {
-									//											AnimationAPI.playAnimation(player, data.getGame().getPlayer(uuid), AnimationAPI.Animation.TAKE_DAMGE);
-									//										}
-									//									}
+																		if (damagerData.getPlayer().getItemInHand().equals(Murder.instance.itemManager.getKnife())) {
+																			//Set the potential killer
+																			data.killer = damagerData.uuid;
+																			if (data.damageAmount++ >= 2) {
+																				data.damageAmount = 0;
+																				data.killed = true;
+																				data.getGame().killedPlayers.add(data.uuid);
+																			}
+									
+																			for (UUID uuid : data.getGame().players) {
+																				AnimationAPI.playAnimation(player, data.getGame().getPlayer(uuid), AnimationAPI.Animation.TAKE_DAMGE);
+																			}
+																		}
 								} else {
 									event.setCancelled(true);
 								}
 							}
 						}
 					}
-					/*else {
+					else {
 						Entity damager = event.getDamager();
 						if (damager != null && damager.getType() == EntityType.PLAYER) {
 							Player damagerPlayer = (Player) damager;
@@ -159,36 +159,36 @@ public class GameListener implements Listener {
 								}
 							}
 						}
-					}*/
+					}
 				}
 			}
 		}
-		//		if (event.getEntityType() == EntityType.ARROW) {
-		//			if (event.getEntity().hasMetadata("MURDER")) {
-		//				event.setCancelled(true);
-		//				event.setDamage(0);
-		//			}
-		//		}
+				if (event.getEntityType() == EntityType.ARROW) {
+					if (event.getEntity().hasMetadata("MURDER")) {
+						event.setCancelled(true);
+						event.setDamage(0);
+					}
+				}
 	}
 
 	@EventHandler
 	public void on(PlayerDeathEvent event) {
-		//		Player player = event.getEntity();
-		//		PlayerData data = plugin.playerManager.getData(player.getUniqueId());
-		//		if (data != null) {
-		//			if (data.isInGame()) {
-		//				if (data.gameState.isInvulnerable() || data.role == Role.SPECTATOR) {
-		//					event.getEntity().setHealth(event.getEntity().getMaxHealth());
-		//					event.setDeathMessage(null);
-		//					event.getDrops().clear();
-		//					event.getEntity().teleport(event.getEntity().getLocation());
-		//				} else {
-		//					data.killed = true;
-		//					//noinspection ConstantConditions
-		//					data.getGame().killedPlayers.add(player.getUniqueId());
-		//				}
-		//			}
-		//		}
+				Player player = event.getEntity();
+				PlayerData data = plugin.playerManager.getData(player.getUniqueId());
+				if (data != null) {
+					if (data.isInGame()) {
+						if (data.gameState.isInvulnerable() || data.role == Role.SPECTATOR) {
+							event.getEntity().setHealth(event.getEntity().getMaxHealth());
+							event.setDeathMessage(null);
+							event.getDrops().clear();
+							event.getEntity().teleport(event.getEntity().getLocation());
+						} else {
+							data.killed = true;
+							//noinspection ConstantConditions
+							data.getGame().killedPlayers.add(player.getUniqueId());
+						}
+					}
+				}
 	}
 
 	// Gun shot / Knife throw / Speed Boost
@@ -222,8 +222,8 @@ public class GameListener implements Listener {
 							//noinspection ConstantConditions
 							data.getGame().timeoutPlayers.add(data.uuid);
 
-							//							data.getPlayer().getWorld().playSound(data.getPlayer().getLocation(), Sound.ENTITY_BLAZE_SHOOT, 0.2f, 1.5f);
-							//							data.getPlayer().getWorld().playSound(data.getPlayer().getLocation(), Sound.ENTITY_WITHER_SHOOT, 0.1f, 2f);
+														data.getPlayer().getWorld().playSound(data.getPlayer().getLocation(), Sound.ENTITY_BLAZE_SHOOT, 0.2f, 1.5f);
+														data.getPlayer().getWorld().playSound(data.getPlayer().getLocation(), Sound.ENTITY_WITHER_SHOOT, 0.1f, 2f);
 							data.getPlayer().getWorld().playSound(data.getPlayer().getLocation(), "murder.gun.shot", 0.5f, 1f);
 						}
 					}
@@ -236,7 +236,7 @@ public class GameListener implements Listener {
 						//noinspection ConstantConditions
 						data.getGame().timeoutPlayers.add(data.uuid);
 
-						//						data.getPlayer().getWorld().playSound(data.getPlayer().getLocation(), Sound.ENTITY_SNOWMAN_SHOOT, 0.1f, 1f);
+												data.getPlayer().getWorld().playSound(data.getPlayer().getLocation(), Sound.ENTITY_SNOWMAN_SHOOT, 0.1f, 1f);
 						data.getPlayer().getWorld().playSound(data.getPlayer().getLocation(), Sound.BLOCK_METAL_HIT, 1f, 3f);
 					}
 				}
@@ -366,8 +366,8 @@ public class GameListener implements Listener {
 
 	@EventHandler
 	public void on(ProjectileHitEvent event) {
-		//		if (event.getEntity().hasMetadata("MURDER")) {
-		//			event.getEntity().remove();
-		//		}
+				if (event.getEntity().hasMetadata("MURDER")) {
+					event.getEntity().remove();
+				}
 	}
 }
