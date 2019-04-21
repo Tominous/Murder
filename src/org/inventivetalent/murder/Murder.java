@@ -114,18 +114,18 @@ public class Murder extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		//		if (!Bukkit.getPluginManager().isPluginEnabled("WorldEdit")) {
-		//			getLogger().severe("****************************************");
-		//			getLogger().severe(" ");
-		//			getLogger().severe("         Please install WorldEdit        ");
-		//			getLogger().severe("http://dev.bukkit.org/bukkit-plugins/worldedit");
-		//			getLogger().severe(" ");
-		//			getLogger().severe("****************************************");
-		//			Bukkit.getPluginManager().disablePlugin(this);
-		//			return;
-		//		} else {
-		//			getLogger().info("Found WorldEdit");
-		//		}
+				if (!Bukkit.getPluginManager().isPluginEnabled("WorldEdit")) {
+					getLogger().severe("****************************************");
+					getLogger().severe(" ");
+					getLogger().severe("         Please install WorldEdit        ");
+					getLogger().severe("http://dev.bukkit.org/bukkit-plugins/worldedit");
+					getLogger().severe(" ");
+					getLogger().severe("****************************************");
+					Bukkit.getPluginManager().disablePlugin(this);
+					return;
+				} else {
+					getLogger().info("Found WorldEdit");
+				}
 		if (!Bukkit.getPluginManager().isPluginEnabled("NickNamer")) {
 			getLogger().severe("****************************************");
 			getLogger().severe(" ");
@@ -228,9 +228,9 @@ public class Murder extends JavaPlugin {
 		}
 	}
 
-	//	public WorldEdit getWorldEdit() {
-	//		return ((WorldEditPlugin) Bukkit.getPluginManager().getPlugin("WorldEdit")).getWorldEdit();
-	//	}
+		public WorldEdit getWorldEdit() {
+			return ((WorldEditPlugin) Bukkit.getPluginManager().getPlugin("WorldEdit")).getWorldEdit();
+		}
 
 	public NickManager getNickManager() {
 		return ((INickNamer) Bukkit.getPluginManager().getPlugin("NickNamer")).getAPI();
