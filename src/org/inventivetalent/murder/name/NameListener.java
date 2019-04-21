@@ -17,14 +17,14 @@ public class NameListener implements Listener {
 
 	@EventHandler
 	public void on(org.inventivetalent.nicknamer.api.event.NickNamerUpdateEvent event) {
-//		PlayerData data = plugin.playerManager.getData(event.getPlayer().getUniqueId());
-//		if (data != null) {
-//			if (data.isInGame()) {
-//				if (getNickManager().isNicked(event.getPlayer().getUniqueId())) {
-//					event.setNick(getNickManager().getNick(event.getPlayer().getUniqueId()));
-//				}
-//			}
-//		}
+		PlayerData data = plugin.playerManager.getData(event.getPlayer().getUniqueId());
+		if (data != null) {
+			if (data.isInGame()) {
+				if (getNickManager().isNicked(event.getPlayer().getUniqueId())) {
+					event.setNick(getNickManager().getNick(event.getPlayer().getUniqueId()));
+				}
+			}
+		}
 	}
 
 	NickManager getNickManager() {
